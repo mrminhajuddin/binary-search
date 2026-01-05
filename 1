@@ -1,0 +1,25 @@
+def binary_search_iterative(arr, target):
+    low = 0
+    high = len(arr) - 1
+    
+    while low <= high:
+        mid = (low + high) // 2  # Integer division for mid index
+        if arr[mid] == target:
+            return mid  # Found, return index
+        elif arr[mid] < target:
+            low = mid + 1  # Target is in the right half
+        else:
+            high = mid - 1  # Target is in the left half
+    
+    return -1  # Not found
+
+# Example usage
+if __name__ == "__main__":
+    arr = [1, 3, 5, 7, 9, 11, 13]
+    target = 7
+    result = binary_search_iterative(arr, target)
+    if result != -1:
+        print(f"Element {target} found at index {result}")
+    else:
+        print(f"Element {target} not found")
+    # Output: Element 7 found at index 3
